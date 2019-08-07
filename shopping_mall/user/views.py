@@ -3,7 +3,7 @@ from django.views.generic import FormView
 from .forms import RegisterForm,LoginForm
 # Create your views here.
 def index(request):
-    return render(request, "user/index.html", {'email':request.session.get('user')})
+    return render(request, "user/index.html", {'email':request.session.get('user', ' ')})
 
 class RegisterView(FormView):
     template_name = "user/register.html"

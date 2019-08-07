@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=64, verbose_name='상품명')),
                 ('price', models.IntegerField(verbose_name='가격')),
-                ('stuck', models.IntegerField(verbose_name='재고')),
+                ('stock', models.IntegerField(verbose_name='재고')),
                 ('reg_date', models.DateField(auto_now_add=True, verbose_name='등록시간')),
             ],
             options={
