@@ -7,7 +7,7 @@ class RegisterForm(forms.Form):
             'required':'상품명을 입력해주세요.'
         }, label="상품명", max_length=64)
     
-    price = forms.CharField(
+    price = forms.IntegerField(
         error_messages={
             'required':"상품 가격을 입력해주세요."
         }, label="상품 가격",
@@ -30,11 +30,5 @@ class RegisterForm(forms.Form):
         description = cleaned_data.get('description')
         stock = cleaned_data.get('stock')
 
-        if name and price and description and stock:
-            product = Product(
-                name=name,
-                price=price,
-                description=description,
-                stock = stock
-            )
-            product.save()
+        if not (name and price and description and stock):
+            self.add_error('stock', '모든 값을 입력해야 합니다.')
